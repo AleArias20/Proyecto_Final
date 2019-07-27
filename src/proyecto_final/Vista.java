@@ -14,19 +14,20 @@ import javax.swing.table.DefaultTableModel;
  * @author Alejandra Arias
  */
 public class Vista extends javax.swing.JFrame {
-    private Lista nvoLib;
+     private Lista nvoLib;
      DefaultTableModel dtm = new DefaultTableModel();
      List<Libro> li = new ArrayList<>();
+     ArbolBinario ab = new ArbolBinario();
     /**
      * Creates new form Vista
      */
     public Vista() {
         initComponents();
-        
-        DefaultTableModel mod = (DefaultTableModel) tblLibros.getModel();
-       
+        nvoLibro();
      
-    
+  
+        DefaultTableModel mod = (DefaultTableModel) tblLibros.getModel();      
+
         Object[] fila = new Object[tblLibros.getColumnCount()];
         for(int i = 0; i<li.size(); i++){
             fila[0] = li.get(i).getNombre();
@@ -35,6 +36,42 @@ public class Vista extends javax.swing.JFrame {
             mod.addRow(fila);
         }
     }
+    
+    private void nvoLibro(){
+        
+            Libro l1 = new Libro();
+            l1.setNombre("Orgullo y Prejuicio");
+            l1.setAutor("Jane Austen");
+            l1.setCantidad(8);
+           
+
+            Libro l2 = new Libro();
+            l2.setNombre("Los hornos de Hitler");
+            l2.setAutor("Olga Lengyel");
+            l2.setCantidad(6);
+
+            Libro l3 = new Libro();
+            l3.setNombre("Harry Potter y la piedra filosofal");
+            l3.setAutor("J. K. Rowling");
+            l3.setCantidad(4);
+
+            Libro l4 = new Libro();
+            l4.setNombre("Historias Cruzadas");
+            l4.setAutor("Kathryn Stockett");
+            l4.setCantidad(7);
+            
+            Libro l5 = new Libro();
+            l5.setNombre("A primera vista");
+            l5.setAutor("Nicholas Sparks ");
+            l5.setCantidad(2);
+            
+            li.add(l1);
+            li.add(l2);
+            li.add(l3); 
+            li.add(l4); 
+            li.add(l5); 
+    }
+    
     
      private void LlenarTabla(){
            DefaultTableModel model = (DefaultTableModel) tblLibros.getModel();
@@ -46,9 +83,9 @@ public class Vista extends javax.swing.JFrame {
             fila[2] = txtCant.getText();
          
             model.addRow(fila);
-        
+            
      }
-     
+      
       private void Limpiar(){
        
         txtNombre.setText("");
@@ -88,6 +125,7 @@ public class Vista extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        tblLibros.setFont(new java.awt.Font("Yu Gothic", 0, 11)); // NOI18N
         tblLibros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -231,10 +269,6 @@ public class Vista extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(73, 73, 73))
             .addComponent(jSeparator1)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(302, 302, 302))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -259,6 +293,10 @@ public class Vista extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtBStock, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(302, 302, 302))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -299,7 +337,7 @@ public class Vista extends javax.swing.JFrame {
                     .addComponent(txtBLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnBuscar)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         pack();
@@ -333,6 +371,7 @@ public class Vista extends javax.swing.JFrame {
         // TODO add your handling code here:
         LlenarTabla();
         Limpiar();
+ 
         
     }//GEN-LAST:event_btnAgregarActionPerformed
 
