@@ -7,6 +7,7 @@ package proyecto_final;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -423,6 +424,16 @@ public class Vista extends javax.swing.JFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tblLibros.getModel();
+
+        int fila = tblLibros.getSelectedRow();
+        if(fila>=0){
+            model.removeRow(fila);
+        }else{
+            JOptionPane.showMessageDialog(this, "Fila no seleccionada");
+        }
+       
+   
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
