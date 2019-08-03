@@ -264,6 +264,11 @@ public class Vista extends javax.swing.JFrame {
 
         btnBuscar.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
         btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 374, -1, -1));
 
         btnEliminar.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
@@ -352,6 +357,17 @@ public class Vista extends javax.swing.JFrame {
        
    
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+        btnBuscar aux = raiz;
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**
      * @param args the command line arguments
